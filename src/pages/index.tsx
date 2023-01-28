@@ -5,7 +5,7 @@ import { Inter } from '@next/font/google'
 import Image from 'next/image'
 
 // styles
-import styles from '@/styles/Home.module.scss'
+import styles from 'styles/Home.module.css'
 
 // types
 import { NextPage } from 'next/types'
