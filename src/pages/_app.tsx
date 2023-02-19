@@ -2,7 +2,7 @@
 import Head from 'next/head'
 
 // styles
-import 'styles/globals.css'
+import 'styles/globals.scss'
 
 // types
 import { AppProps } from 'next/app'
