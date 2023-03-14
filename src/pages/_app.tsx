@@ -1,15 +1,28 @@
 // next
 import Head from 'next/head'
 
+// constext providers
+import { AppContextProvider } from '@contexts/app/provider'
+
+// components
+import { Sidebar } from '@molecules/sidebar'
+
+// global styles
+import 'primereact/resources/themes/lara-light-indigo/theme.css'
+import 'primereact/resources/primereact.min.css'
+import 'primeicons/primeicons.css'
+import '@styles/globals.scss'
+
 // styles
-import 'styles/globals.scss'
+import classes from '@styles/ui/layout.module.scss'
 
 // types
 import { AppProps } from 'next/app'
 import { NextPage } from 'next'
+import { Container } from 'react-bootstrap'
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
-  const permalink = 'https://todo-list-jmv.vercel.app'
+  const permalink = 'https://shopping-list-jmv.vercel.app'
 
   return (
     <>
@@ -38,7 +51,13 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
         />
       </Head>
 
-      <Component {...pageProps} />
+      <AppContextProvider>
+        <Sidebar />
+
+        <Container className={classes.container}>
+          <Component {...pageProps} />
+        </Container>
+      </AppContextProvider>
     </>
   )
 }

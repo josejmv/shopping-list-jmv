@@ -1,0 +1,67 @@
+@import '/src/styles/variables.scss';
+@import '/src/styles/ui/buttons.module.scss';
+
+.main {
+  .title {
+    font-size: 36px;
+    text-align: center;
+
+    &_label {
+      font-size: 14px;
+      font-weight: bold;
+      color: $text-color;
+      margin-left: 1.5rem !important;
+      border-bottom: 1px solid rgba($text-color, 0.6);
+    }
+    &_name {
+      color: $white;
+      font-size: 42px;
+      margin-left: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      &_label {
+        margin-top: 0.5rem;
+        margin-left: 0 !important;
+      }
+      &_name {
+        margin-bottom: 1rem;
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  .subtitle {
+    margin: 2rem 0;
+    font-size: 24px;
+    color: $text-color;
+  }
+
+  .list {
+    .item {
+      height: 130px;
+      display: flex;
+      border-radius: 13px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $text-color;
+    }
+  }
+
+  .button_outline {
+    padding: 2rem 0;
+
+    .icon {
+      margin: 0 0.8rem;
+    }
+
+    .text {
+      font-size: 18px;
+      margin-left: 0.5rem;
+    }
+  }
+}

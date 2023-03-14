@@ -2,13 +2,13 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   const keywords = [
-    'todo',
     'list',
     'josejmv',
     'next.js',
     'cypress',
     'project',
-    'react.js'
+    'react.js',
+    'shopping'
   ]
 
   return (

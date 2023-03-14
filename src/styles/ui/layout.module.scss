@@ -1,0 +1,8 @@
+.container {
+  margin-top: 2rem;
+  max-width: 1000px;
+
+  @media (max-width: 1200px) {
+    padding-left: 6em;
+  }
+}
