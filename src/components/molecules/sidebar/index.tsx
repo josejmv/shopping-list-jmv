@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 // components
-import { Logo } from '@atoms/logo'
+import { WebsiteLogo } from '@atoms/WebsiteLogo'
 
 // hooks
 import { useApp } from 'hooks/app/useApp'
@@ -20,14 +20,12 @@ import { Button } from 'react-bootstrap'
 import classes from './styles.module.scss'
 
 // main tools
-import { Icon } from 'react-bootstrap-icons'
+import { ListDataType } from 'types/List'
 import { FC } from 'react'
 
-type listDataType = { label: string; href: string; icon: Icon }
-
 export const Sidebar: FC = () => {
-  const { handleShowCreate } = useApp()
-  const [lists, setLists] = useState<listDataType[]>()
+  const { handleShowManageList } = useApp()
+  const [lists, setLists] = useState<ListDataType[]>()
 
   useEffect(() => {
     ;(async () => {
@@ -43,7 +41,7 @@ export const Sidebar: FC = () => {
     <aside className={classes.sidebar}>
       <section className={classes.header}>
         <div className={classes.logo}>
-          <Logo />
+          <WebsiteLogo />
         </div>
         <p className={classes.title}>Shopping list</p>
       </section>
@@ -60,7 +58,7 @@ export const Sidebar: FC = () => {
             </Button>
           </Link>
         ))}
-      <Button onClick={handleShowCreate} className={classes.button_outline}>
+      <Button onClick={handleShowManageList} className={classes.button_outline}>
         <PlusCircle className={classes.icon} size={32} />
         <span className={classes.text}>Agregar lista</span>
       </Button>

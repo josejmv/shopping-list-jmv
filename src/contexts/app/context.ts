@@ -6,10 +6,10 @@ import { Toast } from 'primereact/toast'
 
 type AppContextType = {
   toast: () => Toast | undefined
-  handleShowCreate: () => void
+  handleShowManageList: () => void
 }
 
 export const AppContext = createContext<AppContextType>({
   toast: () => undefined,
-  handleShowCreate: () => null
+  handleShowManageList: () => null
 })

@@ -16,14 +16,12 @@ import { Row, Col, Button } from 'react-bootstrap'
 import classes from '@styles/pages/home.module.scss'
 
 // types
-import { Icon } from 'react-bootstrap-icons'
+import { ListDataType } from 'types/List'
 import { NextPage } from 'next/types'
 
-type listDataType = { label: string; href: string; icon: Icon }
-
 const Home: NextPage = () => {
-  const { handleShowCreate } = useApp()
-  const [lists, setLists] = useState<(listDataType | never)[]>()
+  const { handleShowManageList } = useApp()
+  const [lists, setLists] = useState<ListDataType[]>()
 
   useEffect(() => {
     ;(async () => {
@@ -65,7 +63,7 @@ const Home: NextPage = () => {
             ))}
           <Col xs={3}>
             <Button
-              onClick={handleShowCreate}
+              onClick={handleShowManageList}
               className={classes.button_outline}>
               <PlusCircle className={classes.icon} size={32} />
               <span className={classes.text}>Agregar lista</span>

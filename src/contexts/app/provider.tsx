@@ -21,11 +21,11 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({
   children
 }) => {
   const toast = useRef<Toast>(null)
-  const [showCreateList, setshowCreateList] = useState(false)
-  const context = { handleShowCreate, toast: () => toast.current as Toast }
+  const [showManageList, setShowManageList] = useState(false)
+  const context = { handleShowManageList, toast: () => toast.current as Toast }
 
-  function handleShowCreate() {
-    setshowCreateList(true)
+  function handleShowManageList() {
+    setShowManageList(true)
   }
 
   return (
@@ -35,8 +35,8 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({
 
       <Modal
         centered
-        show={showCreateList}
-        onHide={() => setshowCreateList(false)}>
+        show={showManageList}
+        onHide={() => setShowManageList(false)}>
         <Modal.Header closeButton />
         <Modal.Body>
           <h2>Create shopping list</h2>

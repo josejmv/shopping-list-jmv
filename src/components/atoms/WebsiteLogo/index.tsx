@@ -10,7 +10,7 @@ import classes from './styles.module.scss'
 // types
 import { FC } from 'react'
 
-export const Logo: FC = () => (
+export const WebsiteLogo: FC = () => (
   <Link href='/' className={classes.logo}>
     <Cart size={32} />
   </Link>
