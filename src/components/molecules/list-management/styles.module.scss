@@ -1,0 +1,18 @@
+@import '/src/styles/ui/inputs.module.scss';
+@import '/src/styles/ui/buttons.module.scss';
+
+.title {
+  text-align: center;
+}
+.label {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.button {
+  margin-top: 2rem;
+}
+.error {
+  margin: 1rem 0;
+  font-size: 14px;
+  color: rgb(255, 142, 142) !important;
+}

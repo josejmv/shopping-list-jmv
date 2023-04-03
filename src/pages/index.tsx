@@ -1,9 +1,8 @@
-// main tools
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-
 // hooks
 import { useApp } from 'hooks/app/useApp'
+
+// components
+import { ListCard } from '@molecules/list-card'
 
 // prime components
 import { Skeleton } from 'primereact/skeleton'
@@ -16,22 +15,10 @@ import { Row, Col, Button } from 'react-bootstrap'
 import classes from '@styles/pages/home.module.scss'
 
 // types
-import { ListDataType } from 'types/List'
 import { NextPage } from 'next/types'
 
 const Home: NextPage = () => {
-  const { handleShowManageList } = useApp()
-  const [lists, setLists] = useState<ListDataType[]>()
-
-  useEffect(() => {
-    ;(async () => {
-      const res = window.localStorage.getItem('lists')
-
-      console.log(res)
-
-      setLists([])
-    })()
-  }, [])
+  const { handleShowManageList, lists } = useApp()
 
   return (
     <main className={classes.main}>
@@ -46,25 +33,22 @@ const Home: NextPage = () => {
           <AlignStart /> List
         </h2>
 
-        <Row className={classes.list}>
+        <Row>
           {!lists && (
             <Col xs={2}>
-              <Skeleton height='2rem' />
+              <Skeleton className={classes.skeleton} height='6rem' />
             </Col>
           )}
           {lists &&
-            lists.map((Item, idx) => (
-              <Col key={idx} xs={2}>
-                <Link className={classes.item} href={Item.href}>
-                  <Item.icon size={32} className='me-2' />{' '}
-                  <div>{Item.label}</div>
-                </Link>
+            lists.map((item) => (
+              <Col key={item.href} xs={12} sm={6} md={3}>
+                <ListCard {...item} />
               </Col>
             ))}
-          <Col xs={3}>
+          <Col xs={12} sm={6} md={3}>
             <Button
-              onClick={handleShowManageList}
-              className={classes.button_outline}>
+              className={classes.button_outline}
+              onClick={() => handleShowManageList()}>
               <PlusCircle className={classes.icon} size={32} />
               <span className={classes.text}>Agregar lista</span>
             </Button>

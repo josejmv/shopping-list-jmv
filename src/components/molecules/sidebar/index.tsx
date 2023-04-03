@@ -1,9 +1,8 @@
 // main tools
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 // components
-import { WebsiteLogo } from '@atoms/WebsiteLogo'
+import { WebsiteLogo } from '@atoms/website-logo'
 
 // hooks
 import { useApp } from 'hooks/app/useApp'
@@ -13,29 +12,17 @@ import { Skeleton } from 'primereact/skeleton'
 import { Divider } from 'primereact/divider'
 
 // bootstrap components
-import { PlusCircle } from 'react-bootstrap-icons'
+import { BagCheck, PlusCircle } from 'react-bootstrap-icons'
 import { Button } from 'react-bootstrap'
 
 // styles
 import classes from './styles.module.scss'
 
 // main tools
-import { ListDataType } from 'types/List'
 import { FC } from 'react'
 
 export const Sidebar: FC = () => {
-  const { handleShowManageList } = useApp()
-  const [lists, setLists] = useState<ListDataType[]>()
-
-  useEffect(() => {
-    ;(async () => {
-      const res = window.localStorage.getItem('lists')
-
-      console.log(res)
-
-      setLists([])
-    })()
-  }, [])
+  const { handleShowManageList, lists } = useApp()
 
   return (
     <aside className={classes.sidebar}>
@@ -48,17 +35,19 @@ export const Sidebar: FC = () => {
 
       <Divider className={classes.divider} />
 
-      {!lists && <Skeleton height='2rem' />}
+      {!lists && <Skeleton className={classes.skeleton} height='2rem' />}
       {lists &&
         lists.map((List) => (
-          <Link passHref key={List.label} href={List.href}>
+          <Link passHref key={List.href} href={List.href}>
             <Button className={classes.button_outline}>
-              <List.icon className={classes.icon} size={32} />
+              <BagCheck className={classes.icon} size={32} />
               <span className={classes.text}>{List.label}</span>
             </Button>
           </Link>
         ))}
-      <Button onClick={handleShowManageList} className={classes.button_outline}>
+      <Button
+        onClick={() => handleShowManageList()}
+        className={classes.button_outline}>
         <PlusCircle className={classes.icon} size={32} />
         <span className={classes.text}>Agregar lista</span>
       </Button>

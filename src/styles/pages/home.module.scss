@@ -1,5 +1,6 @@
 @import '/src/styles/variables.scss';
 @import '/src/styles/ui/buttons.module.scss';
+@import '/src/styles/ui/skeleton.module.scss';
 
 .main {
   .title {
@@ -41,18 +42,8 @@
     color: $text-color;
   }
 
-  .list {
-    .item {
-      height: 130px;
-      display: flex;
-      border-radius: 13px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid $text-color;
-    }
-  }
-
   .button_outline {
+    margin: 1rem 0;
     padding: 2rem 0;
 
     .icon {

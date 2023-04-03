@@ -1,0 +1,26 @@
+@import '/src/styles/ui/buttons.module.scss';
+@import '/src/styles/variables.scss';
+
+.dialog {
+  :global(.p-dialog-header) {
+    color: $white !important;
+    padding: 1rem !important;
+    border-radius: 24px 24px 0 0 !important;
+    background: $light-background !important;
+  }
+  :global(.p-dialog-content) {
+    color: $white !important;
+    padding: 1rem !important;
+    background: $light-background !important;
+  }
+  :global(.p-dialog-footer) {
+    color: $white !important;
+    padding: 1rem !important;
+    border-radius: 0 0 24px 24px !important;
+    background: $light-background !important;
+
+    .button {
+      width: fit-content !important;
+    }
+  }
+}

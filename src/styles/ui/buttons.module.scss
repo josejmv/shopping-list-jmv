@@ -2,16 +2,38 @@
 
 .button {
   width: 100% !important;
+  font-weight: 700 !important;
+  background: $text-color !important;
+  color: $light-background !important;
+  border-color: $text-color !important;
   border-radius: $border-radius !important;
+
+  &:focus,
+  &:active {
+    @extend .button;
+    outline: none !important;
+    box-shadow: none !important;
+  }
 
   &_outline {
     @extend .button;
+    transition: all 0.3s;
+    color: $white !important;
+    font-weight: 600 !important;
     background: transparent !important;
     border: 1px solid $text-color !important;
 
     &:hover {
       color: $background !important;
       background: $text-color !important;
+    }
+
+    &:focus,
+    &:active {
+      @extend .button_outline;
+
+      outline: none !important;
+      box-shadow: none !important;
     }
   }
 }

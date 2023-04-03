@@ -1,0 +1,55 @@
+@import '/src/styles/ui/buttons.module.scss';
+@import '/src/styles/variables.scss';
+
+.container {
+  @extend .button_outline;
+  margin: 1rem 0;
+  position: relative;
+
+  &:hover {
+    .pencil {
+      color: $black !important;
+    }
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    padding: 2rem 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &:hover {
+      color: inherit;
+    }
+
+    .icon {
+      width: fit-content;
+      margin-right: 0.5rem;
+    }
+
+    .text {
+      overflow: hidden;
+      width: fit-content;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  .pencil {
+    right: 2em;
+    bottom: 0.3em;
+    position: absolute;
+    padding: 0 !important;
+    border: none !important;
+    color: $white !important;
+    background: transparent !important;
+  }
+
+  .trash {
+    @extend .pencil;
+    right: 0.3em;
+    color: $error !important;
+  }
+}
